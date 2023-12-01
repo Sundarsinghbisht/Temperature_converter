@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calefaction Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ebee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group, .output-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-group label, .output-group label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group input, .output-group input {
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .output-group {
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calefaction Converter</h1>
+        <div class="input-group">
+            <label for="input">Input (°C)</label>
+            <input type="number" id="input" placeholder="Enter temperature in Celsius">
+        </div>
+        <button class="btn" onclick="convertTemperature()">Convert</button>
+        <div class="output-group">
+            <label for="output">Output (°F)</label>
+            <input type="number" id="output" placeholder="Result in Fahrenheit" readonly>
+        </div>
+    </div>
+    <script>
+        function convertTemperature() {
+            let inputTemp = document.getElementById('input').value;
+            let outputTemp = (inputTemp * 9/5) + 32;
+            document.getElementById('output').value = outputTemp.toFixed(2);
+        }
+    </script>
+</body>
+</html>
